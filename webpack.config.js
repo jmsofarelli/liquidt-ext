@@ -57,10 +57,15 @@ var options = {
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(env.NODE_ENV)
     }),
-    new CopyWebpackPlugin([{ 
-      from: "lib/openpgp/*.js",
-      flatten: true,
-    }]),
+    new CopyWebpackPlugin([
+      {
+        from: "src/js/content_script.js",
+      },
+      { 
+        from: "lib/openpgp/*.js",
+        flatten: true,
+      },
+    ]),
     new CopyWebpackPlugin([{
       from: "src/manifest.json",
       transform: function (content, path) {
